@@ -91,7 +91,7 @@ public class Guitar {
         return this.notableUser2;
     }
 
-    public void setNotableUser2(String notableUser1) {
+    public void setNotableUser2(String notableUser2) {
         this.notableUser2 = notableUser2;
     }
 
@@ -103,7 +103,7 @@ public class Guitar {
         this.notableUser3 = notableUser3;
     }
 
-    public String getPopualrity() {
+    public String getPopularity() {
         return this.popularity;
     }
 
