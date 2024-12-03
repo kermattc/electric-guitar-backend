@@ -23,4 +23,12 @@ public class GuitarService {
     public List<Guitar> getGuitars() {
         return guitarRepository.findAll();
     }
+
+    // return guitars by a keyword
+    public List<Guitar> searchGuitars(String searchText) {
+        System.out.println("Search text: " + searchText);
+        return guitarRepository.findAll().stream()
+            .filter(guitar -> guitar.getPopularity() != null && guitar.getPopularity().toLowerCase().contains(searchText.toLowerCase()))
+            .collect(Collectors.toList());
+    }
 }

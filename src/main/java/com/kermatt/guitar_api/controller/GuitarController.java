@@ -20,8 +20,25 @@ public class GuitarController {
         this.guitarService = guitarService;
     }
 
+    // search list of guitars. Adds keywords in there to refine search
     @GetMapping
-    public List<Guitar> getGuitars() {
-        return guitarService.getGuitars();
+    public List<Guitar> getGuitars(
+        @RequestParam(required = false) String word) {
+            if (word != null) {
+                return guitarService.searchGuitars(word);
+            }
+            else {
+                return guitarService.getGuitars();
+            }
     }
+    
+    // // @GetMapping("/{word}")
+    // public List<Guitar> getGuitarsByDescription(
+    //     @PathVariable(required = false) String word) {
+    //         System.out.println("Received word: " + word);
+    //         if (word == null || word.trim().isEmpty()) {
+    //             return guitarService.getGuitars();
+    //         }
+    //         return guitarService.searchGuitars(word);
+    // }
 }
