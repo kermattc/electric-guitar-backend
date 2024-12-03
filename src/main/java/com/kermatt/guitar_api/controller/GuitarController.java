@@ -23,9 +23,10 @@ public class GuitarController {
     // search list of guitars. Adds keywords in there to refine search
     @GetMapping
     public List<Guitar> getGuitars(
-        @RequestParam(required = false) String word) {
-            if (word != null) {
-                return guitarService.searchGuitars(word);
+        @RequestParam(required = false) List<String> words) {
+            if (words != null) {
+                // List<String> keywords = List.of(words.split(","));
+                return guitarService.searchGuitars(words);
             }
             else {
                 return guitarService.getGuitars();

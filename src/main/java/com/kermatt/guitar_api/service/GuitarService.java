@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Optional;
 
@@ -24,11 +25,17 @@ public class GuitarService {
         return guitarRepository.findAll();
     }
 
-    // return guitars by a keyword
-    public List<Guitar> searchGuitars(String searchText) {
-        System.out.println("Search text: " + searchText);
+    // return guitars by list of keywords using anyMatch
+    // goes like this:
+        // 1) Get all the descriptions via findAll().stream(). Then filter out descriptions with the following conditions:
+        // 2) for each description, check if any of the keywords match. If yes, return true
+    public List<Guitar> searchGuitars(List<String> keywords) {
         return guitarRepository.findAll().stream()
-            .filter(guitar -> guitar.getPopularity() != null && guitar.getPopularity().toLowerCase().contains(searchText.toLowerCase()))
-            .collect(Collectors.toList());
+            .filter(guitar -> {
+                String description = guitar.getPopularity();
+                return keywords.stream().anyMatch(
+                    keyword -> description.toLowerCase().contains(keyword));
+            })
+           .collect(Collectors.toList());
     }
 }
