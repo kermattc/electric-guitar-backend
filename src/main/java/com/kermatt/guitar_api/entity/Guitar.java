@@ -103,6 +103,46 @@ public class Guitar {
         this.notableUser3 = notableUser3;
     }
 
+    public String getFeature1() {
+        return this.feature1;
+    }
+
+    public void setFeature1(String feature1) {
+        this.feature1 = feature1;
+    }
+
+    public String getFeature2() {
+        return this.feature2;
+    }
+
+    public void setFeature2(String feature2) {
+        this.feature2 = feature2;
+    }
+
+    public String getFeature3() {
+        return this.feature3;
+    }
+
+    public void setFeature3(String feature3) {
+        this.feature3 = feature3;
+    }
+
+    public String getFeature4() {
+        return this.feature4;
+    }
+
+    public void setFeature4(String feature4) {
+        this.feature4 = feature4;
+    }
+
+    public String getFeature5() {
+        return this.feature5;
+    }
+
+    public void setFeature5(String feature5) {
+        this.feature5 = feature5;
+    }
+
     public String getPopularity() {
         return this.popularity;
     }
