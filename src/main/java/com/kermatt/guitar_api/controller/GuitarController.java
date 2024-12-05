@@ -26,6 +26,7 @@ public class GuitarController {
         @RequestParam(required = false) List<String> words) {
             if (words != null) {
                 // List<String> keywords = List.of(words.split(","));
+                // System.out.println("From controller - words: " + words);
                 return guitarService.searchGuitars(words);
             }
             else {
