@@ -10,6 +10,7 @@ import com.kermatt.guitar_api.entity.Guitar;
 import com.kermatt.guitar_api.service.GuitarService;
 import com.kermatt.guitar_api.repository.GuitarRepository;
 
+// @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path="api/v1/guitars")
 public class GuitarController {

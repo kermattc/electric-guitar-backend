@@ -17,6 +17,8 @@ import com.kermatt.guitar_api.entity.Guitar;
 // extending jpa repository gives access to a bunch of methods for interacting with data
 public interface GuitarRepository extends JpaRepository<Guitar, Integer> {
 
+    // using findBy (which indicates a query) would result in a verryy long function name (findByMakerIgnoreCaseContainingOrModelIgnoreCaseContaining....OrFinish3IgnoreContaining(String keyword);)
+        // since that's the case it's better to use a query
     @Query("SELECT g FROM Guitar g WHERE " +
     "LOWER(g.maker) LIKE %:keyword% OR " +
     "LOWER(g.model) LIKE %:keyword% OR " +
