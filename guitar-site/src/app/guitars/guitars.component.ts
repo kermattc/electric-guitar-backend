@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common'; 
 import { Guitar } from '../guitar';
-import { GUITARS } from '../mock-guitars';
 import { CommonModule } from '@angular/common';
 import { GuitarService } from '../guitar.service';
 
@@ -24,6 +23,6 @@ export class GuitarsComponent {
     this.guitarService.getGuitars().subscribe((guitars) => {
       this.guitars = guitars;
     });
-    console.log("Guitar: ", this.guitars);
+    // console.log("Guitar: ", this.guitars);
   }
 }
