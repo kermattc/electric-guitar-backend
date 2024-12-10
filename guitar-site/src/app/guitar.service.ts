@@ -9,9 +9,19 @@ import { Guitar } from './guitar';
 export class GuitarService {
   private baseUrl = 'http://localhost:8080/api/v1';
 
-  constructor(private http: HttpClient) {} 
+  constructor(private http: HttpClient) {
+  } 
+  
+  // constructor(private http: HttpClient) {
+  //   this.corsHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json'
+  //   });
+  // }
+  
+  // getGuitars(): Observable<Guitar[]>{
+  getGuitars(keywords: string[]): Observable<Guitar[]>{
 
-  getGuitars(): Observable<Guitar[]>{
     return this.http.get<Guitar[]>(`${this.baseUrl}/guitars`);
   }
 }

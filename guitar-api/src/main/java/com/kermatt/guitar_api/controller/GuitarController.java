@@ -10,9 +10,9 @@ import com.kermatt.guitar_api.entity.Guitar;
 import com.kermatt.guitar_api.service.GuitarService;
 import com.kermatt.guitar_api.repository.GuitarRepository;
 
-// @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path="api/v1/guitars")
+@CrossOrigin(origins = "http://localhost:4200") // my global config wasn't working so adding this worked
 public class GuitarController {
     private final GuitarService guitarService;
 
