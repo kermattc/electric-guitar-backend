@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { GuitarService } from '../guitar.service';
 import { GuitarCardsComponent } from "../guitar-cards/guitar-cards.component";
 import { Guitar } from '../guitar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-guitar-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, GuitarCardsComponent],
+  encapsulation: ViewEncapsulation.None,
+  imports: [ReactiveFormsModule, CommonModule, GuitarCardsComponent, MatFormFieldModule, MatInputModule],
   templateUrl: './guitar-form.component.html',
-  styleUrl: './guitar-form.component.css'
+  styleUrls: ['./guitar-form.component.css', './guitar-form.component.scss']
 })
 export class GuitarFormComponent {
   searchControl = new FormControl('');

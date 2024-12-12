@@ -1,5 +1,12 @@
 <!-- <label>Enter key words separated by comma: </label> -->
-<input id="guitar-form" type="text" [formControl]="searchControl" placeholder="Enter keywords separated by commas">
+<div class="form-container">
+    <mat-form-field>
+        <mat-label>Enter keywords separated by commas</mat-label>
+        <input matInput id="input-field" type="text" [formControl]="searchControl" placeholder="Fender, Gibson, Jimi Hendrix, Tremolo, Floating bridge...">
+    </mat-form-field>
+</div>
+
+<!-- <input id="guitar-form" type="text" [formControl]="searchControl" placeholder="Enter keywords separated by commas"> -->
 <!-- <ng-container *ngIf="guitarsList?.length > 0"> -->
 <!-- <ng-container *ngIf="guitarsList != []"> -->
 <ng-container *ngIf="guitarsList && guitarsList.length > 0 else noGuitars;">

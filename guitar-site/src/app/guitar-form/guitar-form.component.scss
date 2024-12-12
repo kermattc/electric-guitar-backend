@@ -1,0 +1,32 @@
+.form-container {
+    /* display: flex; */
+    /* width: 300%; */
+} 
+
+mat-form-field, .form-container {
+    width: 75vw;
+}
+
+mat-label {
+    color: black !important;
+}
+
+.mdc-text-field--focused input::placeholder {
+    opacity: 0.7 !important;
+    color: black !important;
+}
+
+.mdc-text-field,
+.mat-mdc-form-field-flex { 
+    background-color: #d3e0e6 !important;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.guitar-cards {
+    width: 25%;
+    display: flex;
+}
