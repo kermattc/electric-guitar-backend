@@ -24,6 +24,7 @@ export class GuitarFormComponent {
   // turn string into array of strings so i can pass it into the api later
     // remove leading/trailing whitespace -> turn string into array (comma delimieter) -> remove leading/trailing whitespace for each item -> remove empty strings
   ngOnInit() {
+    console.log("guitars list: ", this.guitarsList);
     this.searchControl.valueChanges.pipe(
         debounceTime(300),
         distinctUntilChanged(),
@@ -39,7 +40,7 @@ export class GuitarFormComponent {
         console.log("Keywords:", keywords);
 
         this.guitarService.getGuitars(keywords).subscribe( (guitars) => {
-          this.guitarsList = guitars
+          this.guitarsList = guitars || [];
           console.log("data: ", guitars);
         });
       });

@@ -1,7 +1,18 @@
 <!-- <label>Enter key words separated by comma: </label> -->
 <input id="guitar-form" type="text" [formControl]="searchControl" placeholder="Enter keywords separated by commas">
-<app-guitar-cards
-    *ngFor="let guitar of guitarsList"
-    [guitar] = "guitar"
-    >
-</app-guitar-cards>
+<!-- <ng-container *ngIf="guitarsList?.length > 0"> -->
+<!-- <ng-container *ngIf="guitarsList != []"> -->
+<ng-container *ngIf="guitarsList && guitarsList.length > 0 else noGuitars;">
+    <div class="cards-container">
+        <app-guitar-cards
+        *ngFor="let guitar of guitarsList"
+        [guitar] = "guitar"
+        class="guitar-cards"
+        >
+        </app-guitar-cards>
+    </div>
+</ng-container>
+
+<ng-template #noGuitars>
+    <p *ngIf="searchControl.value">No guitars found.</p>
+  </ng-template>
