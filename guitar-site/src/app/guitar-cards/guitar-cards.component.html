@@ -1,5 +1,5 @@
 <div *ngIf="guitar" class="card">
-    <mat-card appearance="outlined" class="guitar-card">
+    <mat-card appearance="outlined" class="guitar-card" [ngStyle]="{'background': guitar.color}">
         <mat-card-header>
             <mat-card-title>
                 {{guitar?.maker}} {{guitar?.model}}

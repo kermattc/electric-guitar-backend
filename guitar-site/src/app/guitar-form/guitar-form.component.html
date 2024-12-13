@@ -2,7 +2,7 @@
 <div class="form-container">
     <mat-form-field>
         <mat-label>Enter keywords separated by commas</mat-label>
-        <input matInput id="input-field" type="text" [formControl]="searchControl" placeholder="Fender, Gibson, Jimi Hendrix, Tremolo, Floating bridge...">
+        <input matInput id="input-field" type="text" [formControl]="searchControl" placeholder="Fender, Gibson, Jimi Hendrix, Tremolo, Floating bridge...,">
     </mat-form-field>
 </div>
 
@@ -12,9 +12,9 @@
 <ng-container *ngIf="guitarsList && guitarsList.length > 0 else noGuitars;">
     <div class="cards-container">
         <app-guitar-cards
-        *ngFor="let guitar of guitarsList"
-        [guitar] = "guitar"
-        class="guitar-cards"
+            *ngFor="let guitar of guitarsList;"
+            [guitar] = "guitar"
+            class="guitar-cards"
         >
         </app-guitar-cards>
     </div>

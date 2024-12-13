@@ -7,7 +7,7 @@ mat-form-field, .form-container {
     width: 75vw;
 }
 
-mat-label {
+mat-label, input {
     color: black !important;
 }
 
@@ -16,9 +16,11 @@ mat-label {
     color: black !important;
 }
 
+
 .mdc-text-field,
 .mat-mdc-form-field-flex { 
     background-color: #d3e0e6 !important;
+    color: black;
 }
 
 .cards-container {
@@ -29,4 +31,15 @@ mat-label {
 .guitar-cards {
     width: 25%;
     display: flex;
+
 }
+
+// @mixin random-bgr() {
+//     background: rgb(random(255), random(255), random(255));
+// }
+
+// $colors: red, orange, yellow, green, blue, purple;
+
+// app-guitar-cards:nth-child{
+//         background-color: rgb(random(255),random(255),random(255)) !important;            
+// }

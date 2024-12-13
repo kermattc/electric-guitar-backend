@@ -8,6 +8,12 @@ import { Guitar } from '../guitar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+type RGB = {
+  r: number;
+  g: number;
+  b: number;
+};
+
 @Component({
   selector: 'app-guitar-form',
   standalone: true,
@@ -16,11 +22,13 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './guitar-form.component.html',
   styleUrls: ['./guitar-form.component.css', './guitar-form.component.scss']
 })
+
 export class GuitarFormComponent {
   searchControl = new FormControl('');
   constructor(private guitarService: GuitarService) {}
 
-  guitarsList: Guitar[] = []; 
+  guitarsList: Guitar[] = [];
+  colors: string[] = [];
 
   // GuitarService guitarService = new GuitarService();
   // look for changes every 300 ms
@@ -43,9 +51,34 @@ export class GuitarFormComponent {
         console.log("Keywords:", keywords);
 
         this.guitarService.getGuitars(keywords).subscribe( (guitars) => {
+      
           this.guitarsList = guitars || [];
+          
+          this.guitarsList.forEach(guitar => {
+            guitar.color = generateRandomColor(255,255, 255);
+
+            
+            // `rgb(${Math.floor(Math.random() * 256)}, 
+            // ${Math.floor(Math.random() * 256)}, 
+            // ${Math.floor(Math.random() * 256)})`
+          })
+      
           console.log("data: ", guitars);
+ 
         });
       });
+
+      function generateRandomColor(r: number, g: number, b: number): string {
+        let color=""
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+
+        red = (red + r) / 2
+        green = (green + g) / 2
+        blue = (blue + b) / 2
+
+        return `rgb(${red}, ${green}, ${blue})`;
+      }
   }
 }

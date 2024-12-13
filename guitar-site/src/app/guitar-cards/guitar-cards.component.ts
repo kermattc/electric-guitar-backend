@@ -10,7 +10,6 @@ import { MatChipsModule } from '@angular/material/chips';
   imports: [CommonModule, MatCardModule, MatChipsModule],
   templateUrl: './guitar-cards.component.html',
   styleUrls: ['./guitar-cards.component.scss']
-  // styleUrl: './guitar-cards.component.css'
 })
 export class GuitarCardsComponent {
   @Input() guitar?: Guitar;

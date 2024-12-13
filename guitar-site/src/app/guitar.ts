@@ -20,4 +20,5 @@ export interface Guitar {
     finish3: string;
     finish4: string;
     finish5: string;
+    color?: string;
 }
