@@ -1,9 +1,76 @@
-$colors: red, orange, yellow, green, blue, purple;
-
 .card {
     margin: 2% 2% 2% 2% !important;
 }
 .card mat-card {
     border-radius: 5%;
     height: 100%;
+    vertical-align: baseline;
+    // display: inline-block;
+    // vertical-align: middle !important;
+    // background-color: red !important;
 }
+
+mat-divider {
+    background-color: black;
+    width: 100%;
+    // float: left;
+    // float: right;
+    // margin-right: auto;
+    // text-align: center;
+    justify-content: center;
+    // margin: 2% 2% 2% 2%;
+    margin: 2% auto;
+}
+
+mat-card-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.introduced {
+    font-size: 75%;
+}
+
+.notable-users-title, .maker-model, .notable-users-title, .features-title, .description-title, .finishes-title {
+    font-weight: 500;
+    margin: 2%, 2%, 2%, 2%;
+}
+
+mat-chip-set, .description {
+    // margin: 5%, 0%, 5%, 0%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+}
+
+.content-section, .no-content {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+// mat-chip {
+// //    background-color: #454444 !important;
+//     color: black !important;
+// }
+
+.mat-mdc-standard-chip {
+    --mdc-chip-label-text-color: #000000;
+}
+
+.mat-mdc-chip {
+    background-color: #ffffff !important;
+}
+
+// .mdc-evolution-chip__action, 
+// .mat-mdc-chip-action, .mdc-evolution-chip__action--primary, .mdc-evolution-chip__action--presentational {
+//     background-color: red !important;
+// }
+
+// .mdc-evolution-chip__text-label .mat-mdc-chip-action-label {
+//     color: black !important;
+// }
