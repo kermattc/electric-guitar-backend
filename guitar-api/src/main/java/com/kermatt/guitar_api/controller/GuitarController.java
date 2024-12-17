@@ -11,7 +11,6 @@ import com.kermatt.guitar_api.service.GuitarService;
 import com.kermatt.guitar_api.repository.GuitarRepository;
 
 @RestController
-@CrossOrigin(origins={"http://guitar-site.s3-website.us-east-2.amazonaws.com", "http://localhost:4200"})
 public class GuitarController {
     private final GuitarService guitarService;
 
@@ -21,7 +20,8 @@ public class GuitarController {
     }
 
     // search list of guitars. Adds keywords in there to refine search
-    @GetMapping("api/v1/guitars")
+    @CrossOrigin(origins={"https://d3v8d7zaba9elv.cloudfront.net", "http://localhost:4200"})
+    @GetMapping("/api/v1/guitars")
     public List<Guitar> getGuitars(
         @RequestParam(required = false) List<String> words) {
             if (words != null) {
@@ -33,12 +33,6 @@ public class GuitarController {
                 return guitarService.getGuitars();
             }
     }
-    
-    // @RequestMapping(method = RequestMethod.HEAD)
-    // public ResponseEntity<?> handleHeadRequest() {
-    //     System.out.println("Got head request");
-    //     return ResponseEntity.ok().build();
-    // }
 }
 
 

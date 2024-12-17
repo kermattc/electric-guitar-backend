@@ -42,8 +42,9 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class GuitarService {
   private baseUrl = 'http://localhost:8080/api/v1';
-  // private baseUrl = 'http://18.191.138.168:8080/api/v1';
-
+  // private baseUrl = 'http://18.117.76.173:8080/api/v1';
+  // private baseUrl = 'https://vcjshzd57g.execute-api.us-east-2.amazonaws.com/dev';
+  
   constructor(private http: HttpClient) {}
 
   getGuitars(keywords: string[]): Observable<Guitar[]> {
@@ -56,14 +57,13 @@ export class GuitarService {
       api_keywords = api_keywords.substring(0, api_keywords.length - 1);
     }
 
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Accept': 'application/json',
-    // });
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+    });
 
     console.log("keywords in api call: ", `${this.baseUrl}/guitars?${api_keywords}`);
-    return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`);
+    // return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`);
  
-    // return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`, { headers });
+    return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`, { headers });
   }
 }
