@@ -11,9 +11,9 @@
 - Database: PostgreSQL
 
 - Deployment (all AWS):
-- Frontend: S3 for static web hosting, CloudFront
-- Backend: ECS, API Gateway
-- Datawbawse: RDS
+  - Frontend: S3 for static web hosting, CloudFront
+  - Backend: ECS, API Gateway
+  - Datawbawse: RDS
   
 
 I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
