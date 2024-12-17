@@ -1,6 +1,19 @@
-Playing around with Java and Spring Boot to create a REST API backend.
-Takes data from PostgreSQL database, so be sure to have that set up if you want to run this. Be sure to change environment variables in \src\main\resources\application.properties
+# Overview
+- Full stack web app to find electric guitar data. What was supposed to be a java/spring boot backend project somehow turned into a full stack app deployed on AWS.
 
-I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitars! 
+- I developed the backend using Java and Spring Boot, which grabs data from a PostgreSQL database. To ensure fast queries, I used JPA queries to find data rather than getting all the data and having the backend do the finding.
+- As for the frontend I used Angular and TypeScript. The frontend is finicky as it doesn't work on different screen sizes and more because I didn't intend on developing this into a full stack app.
 
-As of my latest update I just created a frontend via Angular so I can test the searching function 
+
+## Tech Stack
+- Frontend: Angular, TypeScript, Angular Material
+- Backend: Java, Spring Boot, JPA Query
+- Database: PostgreSQL
+
+- Deployment (all AWS):
+- Frontend: S3 for static web hosting, CloudFront
+- Backend: ECS, API Gateway
+- Datawbawse: RDS
+  
+
+I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
