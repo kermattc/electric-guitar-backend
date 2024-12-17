@@ -13,7 +13,12 @@
 - Deployment (all AWS):
   - Frontend: S3 for static web hosting, CloudFront
   - Backend: ECS, API Gateway
-  - Datawbawse: RDS
-  
+  - Database: RDS
+
+
+## Bugs / known issues
+- spaces are removed by accident in the backend (ie: typing in "Jimi Hendrix" won't return the legend himself)
+- adaptive screen sizes
+- consistency with cards
 
 I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
