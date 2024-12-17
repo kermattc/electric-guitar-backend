@@ -11,8 +11,6 @@ import com.kermatt.guitar_api.service.GuitarService;
 import com.kermatt.guitar_api.repository.GuitarRepository;
 
 @RestController
-@RequestMapping(path="api/v1/guitars")
-@CrossOrigin(origins = "http://localhost:4200") // my global config wasn't working so adding this worked
 public class GuitarController {
     private final GuitarService guitarService;
 
@@ -22,7 +20,8 @@ public class GuitarController {
     }
 
     // search list of guitars. Adds keywords in there to refine search
-    @GetMapping
+    @CrossOrigin(origins={"https://d3v8d7zaba9elv.cloudfront.net", "http://localhost:4200"})
+    @GetMapping("/api/v1/guitars")
     public List<Guitar> getGuitars(
         @RequestParam(required = false) List<String> words) {
             if (words != null) {
@@ -34,7 +33,18 @@ public class GuitarController {
                 return guitarService.getGuitars();
             }
     }
-    
+}
+
+
+
+// @RequestMapping(path="api/v1/guitars", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+// @CrossOrigin(origins={"http://localhost:4200", "http://localhost"})
+// @CrossOrigin(origins="*")
+// @RequiredArgsConstructor
+// @CrossOrigin(methods = {RequestMethod.OPTIONS, RequestMethod.DELETE, RequestMethod.GET, RequestMethod.HEAD, RequestMethod.PUT, RequestMethod.POST}, origins = "*")
+// @CrossOrigin(origins = "http://localhost:4200") // my global config wasn't working so adding this worked\
+// @CrossOrigin(origins = {"http://guitar-site.s3-website.us-east-2.amazonaws.com", "http://localhost:4200"})
+
     // // @GetMapping("/{word}")
     // public List<Guitar> getGuitarsByDescription(
     //     @PathVariable(required = false) String word) {
@@ -44,4 +54,3 @@ public class GuitarController {
     //         }
     //         return guitarService.searchGuitars(word);
     // }
-}
