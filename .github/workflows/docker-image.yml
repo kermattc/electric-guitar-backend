@@ -31,7 +31,7 @@ jobs:
     # Step 4: Build Docker image with commit hash
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/electric-guitar-api:${{ env.GIT_COMMIT }} ./020-GithubActionJavaDockerfileCI
+        docker build -t ghcr.io/${{ github.repository_owner }}/electric-guitar-api:${{ env.GIT_COMMIT }} ./guitar-api
 
     # Step 5: Log in to GitHub Container Registry
     - name: Log in to GitHub Container Registry
