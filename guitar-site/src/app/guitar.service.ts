@@ -41,10 +41,10 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GuitarService {
-  private baseUrl = 'http://localhost:8080/api/v1';
+  // private baseUrl = 'http://localhost:8080/api/v1';
   // private baseUrl = 'http://18.117.76.173:8080/api/v1';
   // private baseUrl = 'https://vcjshzd57g.execute-api.us-east-2.amazonaws.com/dev';
-  
+  private baseUrl = 'https://electric-guitar-lookup.azurewebsites.net/api/v1';
   constructor(private http: HttpClient) {}
 
   getGuitars(keywords: string[]): Observable<Guitar[]> {
