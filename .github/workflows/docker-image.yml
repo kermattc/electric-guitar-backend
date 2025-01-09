@@ -31,7 +31,7 @@ jobs:
 
     # Step 4: Update wrapper permissions
     - name: Change wrapper permissions
-      run: chmod +x ./gradlew
+      run: chmod +x ./guitar-api/gradlew
 
     # Step 5: Build application
     - name: Build application using Gradle
