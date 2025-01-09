@@ -44,4 +44,4 @@ jobs:
     # Step 6: Push Docker image to GHCR
     - name: Push Docker image
       run: |
-        docker push ghcr.io/${{ github.repository_owner }}/electrc-guitar-api:${{ env.GIT_COMMIT }}
+        docker push ghcr.io/${{ github.repository_owner }}/electric-guitar-api:${{ env.GIT_COMMIT }}
