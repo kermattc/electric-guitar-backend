@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
     paths:
       - 'guitar-api/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [ "main" ]
     paths:
