@@ -34,23 +34,3 @@ public class GuitarController {
             }
     }
 }
-
-
-
-// @RequestMapping(path="api/v1/guitars", method = {RequestMethod.GET, RequestMethod.OPTIONS})
-// @CrossOrigin(origins={"http://localhost:4200", "http://localhost"})
-// @CrossOrigin(origins="*")
-// @RequiredArgsConstructor
-// @CrossOrigin(methods = {RequestMethod.OPTIONS, RequestMethod.DELETE, RequestMethod.GET, RequestMethod.HEAD, RequestMethod.PUT, RequestMethod.POST}, origins = "*")
-// @CrossOrigin(origins = "http://localhost:4200") // my global config wasn't working so adding this worked\
-// @CrossOrigin(origins = {"http://guitar-site.s3-website.us-east-2.amazonaws.com", "http://localhost:4200"})
-
-    // // @GetMapping("/{word}")
-    // public List<Guitar> getGuitarsByDescription(
-    //     @PathVariable(required = false) String word) {
-    //         System.out.println("Received word: " + word);
-    //         if (word == null || word.trim().isEmpty()) {
-    //             return guitarService.getGuitars();
-    //         }
-    //         return guitarService.searchGuitars(word);
-    // }
