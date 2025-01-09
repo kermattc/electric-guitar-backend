@@ -43,6 +43,9 @@ jobs:
     # Step 6: Build application
     - name: Build application using Gradle
       working-directory: ./guitar-api
+      env:
+        SPRING_DATASOURCE_USERNAME: ${{ secrets.PSQL_USER }}
+        SPRING_DATASOURCE_PASSWORD: ${{ secrets.PSQL_PASSWORD }}
       run: |
         ./gradlew build
 
