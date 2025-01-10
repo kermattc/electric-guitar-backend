@@ -1,18 +1,20 @@
 # Overview
-- Full stack web app to find electric guitar data. What was supposed to be a java/spring boot backend project somehow turned into a full stack app deployed on AWS.
+- Full stack web app to find electric guitar data. What was supposed to be a java/spring boot backend project somehow turned into a full stack app deployed on AWS and Azure.
 
 - I developed the backend using Java and Spring Boot, which grabs data from a PostgreSQL database. To ensure fast queries, I used JPA queries to find data rather than getting all the data and having the backend do the finding.
 - As for the frontend I used Angular and TypeScript. The frontend is finicky as it doesn't work on different screen sizes and more because I didn't intend on developing this into a full stack app.
+- For deployment or anything DevOps related, I initially did everything on AWS. 
 
 
 ## Tech Stack
 - Frontend: Angular, TypeScript, Angular Material
 - Backend: Java, Spring Boot, JPA Query
 - Database: PostgreSQL
+- CI/CD: GitHub Actions and Workflow
 
-- Deployment (all AWS):
+- Deployment:
   - Frontend: S3 for static web hosting, CloudFront
-  - Backend: ECS, API Gateway
+  - Backend: Azure Function (pulls docker image on ghcr)
   - Database: RDS
 
 
