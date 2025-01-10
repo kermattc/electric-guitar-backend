@@ -3,7 +3,7 @@
 
 - I developed the backend using Java and Spring Boot, which grabs data from a PostgreSQL database. To ensure fast queries, I used JPA queries to find data rather than getting all the data and having the backend do the finding.
 - As for the frontend I used Angular and TypeScript. The frontend is finicky as it doesn't work on different screen sizes and more because I didn't intend on developing this into a full stack app.
-- For deployment or anything DevOps related, I initially did everything on AWS but eventually migrated the backend to Azure function app (I initially used . 
+- For deployment or anything DevOps related, I initially did everything on AWS but eventually migrated the backend to Azure function app (I initially used ECS and got charged some $$$). 
 
 
 ## Tech Stack
