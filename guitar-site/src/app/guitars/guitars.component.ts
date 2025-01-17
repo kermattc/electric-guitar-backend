@@ -3,6 +3,7 @@ import { Guitar } from '../guitar';
 import { CommonModule } from '@angular/common';
 import { GuitarService } from '../guitar.service';
 
+
 @Component({
   selector: 'app-guitars',
   standalone: true,
@@ -12,6 +13,7 @@ import { GuitarService } from '../guitar.service';
   templateUrl: './guitars.component.html',
   styleUrl: './guitars.component.css'
 })
+
 export class GuitarsComponent {
   guitars: Guitar[] = [];
 

@@ -4,3 +4,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.content {
+    background-image: url('../assets/images/geetah.png')
+}
