@@ -30,10 +30,10 @@ public interface GuitarRepository extends JpaRepository<Guitar, Integer> {
     "LOWER(g.feature3) LIKE %:keyword% OR " +
     "LOWER(g.feature4) LIKE %:keyword% OR " +
     "LOWER(g.feature5) LIKE %:keyword% OR " +
-    "LOWER(g.popularity) LIKE %:keyword% OR " +
-    "LOWER(g.finish1) LIKE %:keyword% OR " +
-    "LOWER(g.finish2) LIKE %:keyword% OR " +
-    "LOWER(g.finish3) LIKE %:keyword%")
+    "LOWER(g.popularity) LIKE %:keyword%")
+    // "LOWER(g.finish1) LIKE %:keyword% OR " +
+    // "LOWER(g.finish2) LIKE %:keyword% OR " +
+    // "LOWER(g.finish3) LIKE %:keyword%")
     List<Guitar> searchGuitarsByKeyword(@Param("keyword") String keyword);
     
 }
