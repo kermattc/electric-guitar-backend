@@ -1,11 +1,11 @@
 <div *ngIf="guitar" class="card">
     <mat-expansion-panel hideToggle [ngStyle]="{'background': guitar.color}">
         <mat-expansion-panel-header appearance="outlined" class="mat-header" [ngStyle]="{'background': guitar.color}">
-            <mat-panel-title class="stacked-content">
+            <mat-panel-title class="stacked-content"  (click)="rotateChevron()">
                 <img class="brand-logo" [src]="getBrandLogo(guitar.maker)" alt="{{guitar?.maker}} Logo">
                 <img class="guitar-image" [src]="getGuitarImage(guitar.maker+'-'+guitar.model)" alt="{{guitar?.model}} image" class="guitar-image">
                 <p class="guitar-model">{{ guitar?.model }}</p>
-                <img class="chevron" src="../assets/images/chevron.png" >
+                <img class="chevron" src="../assets/images/chevron.png" [style.transform]="'rotate('+rotationAngle+'deg)'">
   
             </mat-panel-title>
 
@@ -62,9 +62,9 @@
                         </mat-chip-set>
                     </ng-template>
                     </div>
-                <mat-divider/>
+                <!-- <mat-divider/> -->
 
-                <div class="content-section">
+                <!-- <div class="content-section">
                     <div class="finishes-title">
                         Finishes: 
                     </div>
@@ -76,10 +76,10 @@
                     <ng-template #no_finishes>
                         <mat-chip-set>
                             <mat-chip>No finishes :&#40;</mat-chip>
-                        </mat-chip-set>
-                    </ng-template>
+                        </mat-chip-set> -->
+                    <!-- </ng-template> -->
                     
-                </div>
+                <!-- </div> -->
             </mat-card-content>
 
         </mat-card>

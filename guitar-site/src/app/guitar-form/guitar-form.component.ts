@@ -7,6 +7,7 @@ import { GuitarCardsComponent } from "../guitar-cards/guitar-cards.component";
 import { Guitar } from '../guitar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { GuitarCardsService } from '../guitar-cards/guitar-cards.service';
 
@@ -14,7 +15,7 @@ import { GuitarCardsService } from '../guitar-cards/guitar-cards.service';
   selector: 'app-guitar-form',
   standalone: true,
   encapsulation: ViewEncapsulation.None,
-  imports: [ReactiveFormsModule, CommonModule, GuitarCardsComponent, MatFormFieldModule, MatInputModule],
+  imports: [ReactiveFormsModule, CommonModule, GuitarCardsComponent, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './guitar-form.component.html',
   styleUrls: ['./guitar-form.component.css', './guitar-form.component.scss']
 })

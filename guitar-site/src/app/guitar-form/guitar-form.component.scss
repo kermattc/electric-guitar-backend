@@ -27,3 +27,11 @@ mat-label, input {
     width: 25%;
     display: flex;
 }
+
+button[mat-raised-button] {
+    // background-color: red ;
+    margin-top: 100px;
+    width: 150px;
+    height: 75px;
+    font-size: 20px;
+}

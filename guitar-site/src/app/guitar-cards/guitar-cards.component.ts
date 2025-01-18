@@ -18,6 +18,8 @@ import { GuitarCardsService } from './guitar-cards.service';
 
 export class GuitarCardsComponent {
   constructor(private guitarCardsService: GuitarCardsService) {}
+  isFlipped: boolean = false;
+  rotationAngle = 0;
 
   @Input() guitar?: Guitar;
 
@@ -84,5 +86,13 @@ export class GuitarCardsComponent {
   getGuitarImage(model: string): string {
     model = model.split(' ').join('-').toLowerCase();
     return this.guitarImages[model] || 'assets/guitars/free-guitar.png';
+  }
+
+  toggleFlip() {
+    this.isFlipped = !this.isFlipped;
+  }
+
+  rotateChevron() {
+    this.rotationAngle += 180;
   }
 }
