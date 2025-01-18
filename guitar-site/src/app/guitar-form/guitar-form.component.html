@@ -16,13 +16,18 @@
         </app-guitar-cards>
     </div>
 
-    <button *ngIf="!dataLoading" 
-        mat-raised-button 
-        class="showMoreButton" 
-        (click)="onShowMore()" 
-        [disabled]="allGuitarsVisible">
-        {{ allGuitarsVisible ? 'No More Guitars' : 'Show More'}}
-    </button>
+    <div class="footer">
+        <button *ngIf="!dataLoading" 
+            mat-raised-button 
+            class="showMoreButton" 
+            (click)="onShowMore()" 
+            [disabled]="allGuitarsVisible">
+            {{ allGuitarsVisible ? 'No More Guitars' : 'Show More'}}
+        </button>
+        <div class="footer-text">
+            <p>Try refreshing if the search isn't working properly</p>
+        </div>
+    </div>
 </ng-container>
 
 <ng-template #noGuitars>

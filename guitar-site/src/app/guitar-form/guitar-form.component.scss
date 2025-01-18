@@ -20,13 +20,12 @@ mat-label, input {
 
 .cards-container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 16px;     
+    justify-content: center;
+    width: 100%;
 }
-.guitar-cards {
-    width: 25%;
-    display: flex;
-}
+
 
 button[mat-raised-button] {
     margin-top: 100px;
@@ -38,4 +37,19 @@ button[mat-raised-button] {
 button[mat-raised-button]:disabled {
     background-color: #b8b7b6 !important;
     color: black;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.footer-text {
+    margin: 15px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background-color: rgba(184, 183, 182, 0.25);
+    border-radius: 12px;
 }
