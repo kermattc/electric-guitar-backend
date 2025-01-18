@@ -27,6 +27,11 @@ public class GuitarController {
             if (words != null) {
                 // List<String> keywords = List.of(words.split(","));
                 // System.out.println("From controller - words: " + words);
+                // try {
+                //     Thread.sleep(6000);
+                // } catch (InterruptedException e) {
+                //     e.printStackTrace();
+                // }
                 return guitarService.searchGuitars(words);
             }
             else {

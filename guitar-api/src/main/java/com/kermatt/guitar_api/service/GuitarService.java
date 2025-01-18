@@ -4,13 +4,17 @@ import org.springframework.stereotype.Component;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 import java.util.Optional;
+import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.domain.Specification;
 
 import com.kermatt.guitar_api.repository.GuitarRepository;
 import com.kermatt.guitar_api.entity.Guitar;
+import com.kermatt.guitar_api.specification.GuitarSpecification;
 
 @Component
 public class GuitarService {
@@ -25,6 +29,36 @@ public class GuitarService {
     public List<Guitar> getGuitars() {
         return guitarRepository.findAll();
     }
+
+
+
+    // new! and improved! search method. loop through words array and perform query search
+    // TODO - modify so that it doesn't repeat search of previous keyword, only new ones
+    // public List<Guitar> searchGuitars(List<String> keywords) {
+    
+    //     public List<Guitar> searchGuitars(List<String> keywords) {
+    //         List<Guitar> results = new ArrayList<>();
+
+    //         for (String keyword: keywords){
+    //             // System.out.println("Searching columns that have this word: " + keyword);
+    //             results.addAll(guitarRepository.searchGuitarsByKeywords(keyword.toLowerCase()));
+    //         }
+    //         System.out.println("Keywords: " + keywords);
+    //         System.out.println("Results: " + results);
+    //         // System.out.println("test");
+
+    //         // remove duplicates
+    //         return results.stream().distinct().collect(Collectors.toList());
+    //     }
+    // }
+
+    public List<Guitar> searchGuitars(List<String> keywords) {
+        Specification<Guitar> specification = GuitarSpecification.containsKeywords(keywords);
+        System.out.println("Specification: " + specification);
+        return guitarRepository.findAll(specification);
+    }
+}
+
 
     // ye old inefficient method
     // return guitars by list of keywords using anyMatch
@@ -68,22 +102,3 @@ public class GuitarService {
     //     })
     //     .collect(Collectors.toList());
     // }
-
-
-    // new! and improved! search method. loop through words array and perform query search
-    // TODO - modify so that it doesn't repeat search of previous keyword, only new ones
-    public List<Guitar> searchGuitars(List<String> keywords) {
-    
-        List<Guitar> results = new ArrayList<>();
-
-        for (String keyword: keywords){
-            // System.out.println("Searching columns that have this word: " + keyword);
-            results.addAll(guitarRepository.searchGuitarsByKeyword(keyword.toLowerCase()));
-        }
-
-        // remove duplicates
-        return results.stream().distinct().collect(Collectors.toList());
-        // return results;
-
-    }
-}
