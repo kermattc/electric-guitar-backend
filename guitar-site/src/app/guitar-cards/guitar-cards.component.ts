@@ -22,10 +22,21 @@ export class GuitarCardsComponent {
   rotationAngle = 0;
 
   @Input() guitar?: Guitar;
+  @Input() searchKeywords: string[] = [];
 
-  // showMore() {
-  //   this.guitarCardsService.showMore();
-  // }
+  highlightKeywords(text: string): string {
+    if (!text || this.searchKeywords.length === 0) return text;
+  
+  let highlightedText = text;
+  this.searchKeywords.forEach(keyword => {
+    const regex = new RegExp(`(${keyword})`, 'gi');
+    highlightedText = highlightedText.replace(regex, `<mark class="highlight">$1</mark>`);
+  });
+  
+    console.log("Highlighting text: ", highlightedText);
+    return highlightedText;
+  }
+  
 
   brandLogos: { [key: string]: string} = {
     Fender: '../assets/images/fender-logo.svg',
@@ -95,4 +106,5 @@ export class GuitarCardsComponent {
   rotateChevron() {
     this.rotationAngle += 180;
   }
+
 }

@@ -47,7 +47,12 @@ mat-chip-set, .description {
     margin-top: 2%;
     margin-bottom: 2%;
     display: flex;
-    color: black;
+    color: black !important;
+}
+
+mat-chip {
+    color: black !important;
+    padding: 5px, 5px, 5px, 5px;
 }
 
 .content-section, .no-content {
@@ -61,6 +66,7 @@ mat-chip-set, .description {
 
 .mat-mdc-chip {
     background-color: #ffffff !important;
+    
 }
 
 .stacked-content {
@@ -97,4 +103,8 @@ mat-expansion-panel {
     height: auto;
     display: block;
     transition: transform 0.3s ease;
+}
+
+.highlight {
+    background-color: yellow; /* Highlight color */
 }

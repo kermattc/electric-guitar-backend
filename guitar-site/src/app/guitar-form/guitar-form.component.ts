@@ -26,6 +26,7 @@ export class GuitarFormComponent {
 
   guitarsList: Guitar[] = [];
   colors: string[] = [];
+  searchKeywords: string[] = [];
   visibleCards: number = 4;
   allGuitarsVisible: boolean = false;
   dataLoading: boolean = false;
@@ -50,18 +51,18 @@ export class GuitarFormComponent {
         distinctUntilChanged(),
       )
       .subscribe((value: string | null) => {
-        const keywords = Array.from(new Set (
+        this.searchKeywords = Array.from(new Set (
           value?.trim()
           .split(",")
           .map(keyword => keyword.trim().replace(/\W/g, ''))  // tbd? added this to remove non alphanuemric characters
           .filter(keyword => keyword.length > 0)
         ).values());
 
-        console.log("Keywords:", keywords);
+        console.log("Keywords:", this.searchKeywords);
         // set data loading state to true so i can render a graphic that the data is being fetched
         this.guitarCardsService.setLoadingState(true);
 
-        this.guitarService.getGuitars(keywords).subscribe( (guitars) => {
+        this.guitarService.getGuitars(this.searchKeywords).subscribe( (guitars) => {
       
           this.guitarsList = guitars || [];
           

@@ -2,6 +2,7 @@
     background-image: url('../assets/images/geetah.png');
     background-position: center top;
     min-height: 150vh;
+    background-position: center -100px;
 }
 
 .header, .guitar-form {
