@@ -27,6 +27,7 @@ export class GuitarFormComponent {
   guitarsList: Guitar[] = [];
   colors: string[] = [];
   visibleCards: number = 4;
+  allGuitarsVisible: boolean = false;
 
 
 
@@ -34,10 +35,12 @@ export class GuitarFormComponent {
   // turn string into array of strings so i can pass it into the api later
   // remove leading/trailing whitespace -> turn string into array (comma delimieter) -> remove leading/trailing whitespace for each item -> remove empty strings
   ngOnInit() {
-    this.guitarCardsService.visibleCards$.subscribe(cards => {
+    this.guitarCardsService.visibleCards.subscribe(cards => {
       this.visibleCards = cards;
     })
-
+    this.guitarCardsService.allGuitarsVisible.subscribe(isVisible => {
+      this.allGuitarsVisible = isVisible;
+    })
     console.log("guitars list: ", this.guitarsList);
     this.searchControl.valueChanges.pipe(
         debounceTime(300),
@@ -79,6 +82,6 @@ export class GuitarFormComponent {
       }
     }
     onShowMore() {
-      this.guitarCardsService.showMore();
+      this.guitarCardsService.showMore(this.guitarsList.length);
     }
 }

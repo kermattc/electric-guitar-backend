@@ -16,7 +16,12 @@
     </div>
 
 
-    <button mat-raised-button class="showMoreButton" mat-raised-button (click)="onShowMore()">Show More</button>
+    <button mat-raised-button 
+        class="showMoreButton" 
+        (click)="onShowMore()" 
+        [disabled]="allGuitarsVisible">
+        {{ allGuitarsVisible ? 'No More Guitars' : 'Show More'}}
+    </button>
 </ng-container>
 
 <ng-template #noGuitars>

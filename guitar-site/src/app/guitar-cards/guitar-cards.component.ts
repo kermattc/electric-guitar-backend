@@ -23,9 +23,9 @@ export class GuitarCardsComponent {
 
   @Input() guitar?: Guitar;
 
-  showMore() {
-    this.guitarCardsService.showMore();
-  }
+  // showMore() {
+  //   this.guitarCardsService.showMore();
+  // }
 
   brandLogos: { [key: string]: string} = {
     Fender: '../assets/images/fender-logo.svg',

@@ -29,9 +29,13 @@ mat-label, input {
 }
 
 button[mat-raised-button] {
-    // background-color: red ;
     margin-top: 100px;
     width: 150px;
     height: 75px;
     font-size: 20px;
+    border-radius: 10px;
+}
+button[mat-raised-button]:disabled {
+    background-color: #b8b7b6 !important;
+    color: black;
 }
