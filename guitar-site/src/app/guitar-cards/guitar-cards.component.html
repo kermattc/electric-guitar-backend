@@ -3,8 +3,12 @@
         <mat-expansion-panel-header appearance="outlined" class="mat-header" [ngStyle]="{'background': guitar.color}">
             <mat-panel-title class="stacked-content"  (click)="rotateChevron()">
                 <img class="brand-logo" [src]="getBrandLogo(guitar.maker)" alt="{{guitar?.maker}} Logo">
+                <!-- <p class="guitar-maker" [innerHTML]="highlightKeywords(guitar.maker)">Brand:{{guitar.maker}}</p>
+                  -->
+                  <p class="guitar-maker" [innerHTML]="highlightKeywords('Brand: ' + guitar.maker)">Brand: {{guitar.maker}}</p>
+
                 <img class="guitar-image" [src]="getGuitarImage(guitar.maker+'-'+guitar.model)" alt="{{guitar?.model}} image" class="guitar-image">
-                <!-- <p class="guitar-model" [innerHTML]="highlightKeywords(guitar.model)"></p> -->
+
                 <p class="guitar-model" [innerHTML]="highlightKeywords(guitar.model)">{{guitar.model}}</p>
                 <img class="chevron" src="../assets/images/chevron.png" [style.transform]="'rotate('+rotationAngle+'deg)'">
   
@@ -20,13 +24,20 @@
                     </div>
                     <mat-chip-set *ngIf="guitar?.notableUser1 || guitar?.notableUser2 || guitar?.notableUser3; else no_notable_users">
                         <mat-chip *ngIf="guitar?.notableUser1">
-                            <p [innerHTML]="highlightKeywords(guitar.notableUser1)"></p>
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.notableUser1)"></p>
+                              -->
+                              <div class="chip-container" [innerHTML]="highlightKeywords(guitar.notableUser1)"></div>
+
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.notableUser2">
-                            <p [innerHTML]="highlightKeywords(guitar.notableUser2)"></p>
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.notableUser2)"></p> -->
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.notableUser2)"></div>
+
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.notableUser3">
-                            <p [innerHTML]="highlightKeywords(guitar.notableUser3)"></p>
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.notableUser3)"></p> -->
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.notableUser3)"></div>
+
                         </mat-chip>
                     </mat-chip-set>
                     <ng-template #no_notable_users class="no-content">
@@ -44,19 +55,29 @@
                     </div>
                     <mat-chip-set *ngIf="guitar?.feature1 || guitar?.feature2 || guitar?.feature3 || guitar?.feature4 || guitar?.feature5; else no_features">
                         <mat-chip *ngIf="guitar?.feature1">
-                            <p [innerHTML]="highlightKeywords(guitar.feature1)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.feature1)"></div>
+
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.feature1)"></p> -->
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.feature2">
-                            <p [innerHTML]="highlightKeywords(guitar.feature2)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.feature2)"></div>
+
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.feature2)"></p> -->
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.feature3">
-                            <p [innerHTML]="highlightKeywords(guitar.feature3)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.feature3)"></div>
+
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.feature3)"></p> -->
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.feature4">
-                            <p [innerHTML]="highlightKeywords(guitar.feature4)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.feature4)"></div>
+
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.feature4)"></p> -->
                         </mat-chip>
                         <mat-chip *ngIf="guitar?.feature5">
-                            <p [innerHTML]="highlightKeywords(guitar.feature5)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.feature5)"></div>
+
+                            <!-- <p [innerHTML]="highlightKeywords(guitar.feature5)"></p> -->
                         </mat-chip>
                     </mat-chip-set>
                     <ng-template #no_features>
@@ -66,25 +87,13 @@
                     </ng-template>
                     <mat-divider/>
                 </div>
-                <!-- <div class="content-section">
-                    <div class="description-title">
-                        Description: 
-                    </div>
-                    <div class="description" *ngIf="guitar?.popularity; else no_description" [innerHTML]="highlightKeywords(guitar.popularity)">
-                    </div>
-                    <ng-template #no_description>
-                        <mat-chip-set>
-                            <mat-chip>No description available :&#40;</mat-chip>
-                        </mat-chip-set>
-                    </ng-template>
-                </div> -->
                 <div class="content-section">
                     <div class="description-title">
                         Description: 
                     </div>
                     <mat-chip *ngIf="guitar?.popularity; else no_description" 
                         class="description">
-                        <p [innerHTML]="highlightKeywords(guitar.popularity)"></p>
+                            <div class="chip-container" [innerHTML]="highlightKeywords(guitar.popularity)"></div>
                     </mat-chip>
                     <ng-template #no_description>
                         <mat-chip>No description available :&#40;</mat-chip>

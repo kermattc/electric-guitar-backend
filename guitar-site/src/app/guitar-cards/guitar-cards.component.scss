@@ -1,14 +1,11 @@
 .card {
-    // margin: 2% 2% 2% 2% !important;
-}
-.card mat-card {
-    // border-radius: 5%;
-    // height: 100%;
-    // vertical-align: baseline;
+    margin: 40px;
+    width: 450px;
 }
 
 mat-card {
     border-color: transparent;
+    width: 100%;
 }
 
 mat-divider {
@@ -43,22 +40,52 @@ mat-panel-title {
     color: black;
 }
 
-mat-chip-set, .description {
+m.content-section {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    flex-grow: 1; /* Allow content to expand vertically */
+}
+
+mat-chip-set {
     margin-top: 2%;
     margin-bottom: 2%;
     display: flex;
+    flex-wrap: wrap; /* Allow chips to wrap to a new line */
+    gap: 5px; /* Adds space between chips */
     color: black !important;
+    flex-grow: 1; /* Allow chip set to expand vertically */
+    align-items: flex-start; /* Align chips at the top */
 }
 
 mat-chip {
     color: black !important;
-    padding: 5px, 5px, 5px, 5px;
+    padding: 5px;
+    max-height: none; /* Remove any max-height limitation */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Ensure text can break */
+    word-break: break-word; /* Ensure words are properly broken */
+    display: flex; /* Allow chips to grow based on content */
+    align-items: flex-start; /* Align text to the top of the chip */
+    justify-content: flex-start; /* Align text to the left */
+    overflow: visible; /* Prevent text clipping */
+    flex: 1 1 auto; /* Allow chips to grow based on content */
 }
 
+.chip-container {
+    display: block;
+    width: 100%;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words */
+    overflow: visible; /* Prevent clipping */
+    word-break: break-word; /* Ensure words wrap properly */
+}
 .content-section, .no-content {
     margin-bottom: 2%;
     margin-top: 2%;
 }
+
 
 .mat-mdc-standard-chip {
     --mdc-chip-label-text-color: #000000;
