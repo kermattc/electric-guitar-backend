@@ -54,27 +54,33 @@ export class GuitarFormComponent {
         this.searchKeywords = Array.from(new Set (
           value?.trim()
           .split(",")
-          .map(keyword => keyword.trim().replace(/\W/g, ''))  // tbd? added this to remove non alphanuemric characters
+          // .map(keyword => keyword.trim().replace(/\W/g, ''))  // tbd? added this to remove non alphanuemric characters
+          .map(keyword => keyword.trim()) // just use trim since it was screwing with keywords with spaces in them (ie: jimi hendrix turns into jimihendrix)
           .filter(keyword => keyword.length > 0)
         ).values());
 
-        console.log("Keywords:", this.searchKeywords);
-        // set data loading state to true so i can render a graphic that the data is being fetched
-        this.guitarCardsService.setLoadingState(true);
-
-        this.guitarService.getGuitars(this.searchKeywords).subscribe( (guitars) => {
-      
-          this.guitarsList = guitars || [];
-          
-          this.guitarsList.forEach(guitar => {
-            guitar.color = generateRandomColor(255,255, 255);
-          })
-      
-          console.log("data: ", guitars);
-          this.guitarCardsService.setLoadingState(false);
-
-        });
-      });
+        if (this.searchKeywords.length > 0) {
+          console.log("Keywords:", this.searchKeywords);
+          // set data loading state to true so i can render a graphic that the data is being fetched
+          this.guitarCardsService.setLoadingState(true);
+  
+          this.guitarService.getGuitars(this.searchKeywords).subscribe( (guitars) => {
+        
+            this.guitarsList = guitars || [];
+            
+            this.guitarsList.forEach(guitar => {
+              guitar.color = generateRandomColor(255,255, 255);
+            })
+        
+            console.log("data: ", guitars);
+            this.guitarCardsService.setLoadingState(false);
+          });
+        } else {
+          this.guitarsList = [];
+          console.log("Keywords empty, clearing results");
+        }
+      }
+    );
 
 
       function generateRandomColor(r: number, g: number, b: number): string {

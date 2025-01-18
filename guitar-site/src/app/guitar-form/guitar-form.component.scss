@@ -43,13 +43,34 @@ button[mat-raised-button]:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-.footer-text {
-    margin: 15px;
-    padding-left: 7px;
-    padding-right: 7px;
-    background-color: rgba(184, 183, 182, 0.25);
-    border-radius: 12px;
+.kaggle-block a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.kaggle-block {
+    gap: 5px;
+}
+
+.kaggle-block a:hover {
+    text-decoration: underline;
+}
+
+.github-logo {
+    width: 48px;
+    height: 36px;
+    // transition: fill 0.3s ease;
+    // fill: #000000;
+}
+
+.github-logo:hover {
+    fill: #007bff;
+}
+
+.kaggle-block, .github-block {
+    display: flex;
+    align-items: center;
 }

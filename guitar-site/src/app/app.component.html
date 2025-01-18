@@ -2,14 +2,16 @@
     <div class="content">
         <div class="header">
             <h1 class="title">{{title}}</h1>
-            <div> Search for guitars by entering keywords separated by commas.</div>
+            <div> Search for guitars by entering keywords separated by commas to narrow down your search.</div>
             <br/>
-            <div> For example, search for brands (Fender, Gibson), models (Stratocaster, Les Paul), guitarists (Jimi Hendrix) and more.</div>
+            <div> Use keywords including brands (Fender, Gibson), models (Stratocaster, Les Paul), guitarists (Jimi Hendrix, Slash) and more.</div>
             <br/>
-            <div> Please note: Guitar images may not be entirely accurate!</div>
+            <div> Example searches: &#40;fender, stratocaster, jimi hendrix&#41;, &#40;gibson, les paul, slash&#41;, &#40;beginner, fender&#41; &#40;ibanez, wizard&#41;</div>
+            <br/>
             <app-guitar-form class="guitar-form"></app-guitar-form>
         </div>
 
+        
         <div class="card-container">
             <app-guitar-cards class="guitar-cards"></app-guitar-cards>
         </div>
@@ -21,5 +23,19 @@
             </div>
 
         </ng-container>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="footer">
+        <div class="kaggle-block">
+            Data from <a href="https://www.kaggle.com/datasets/thebumpkin/small-guitar-model-dataset-113-models" target="_blank"> kaggle</a>
+        </div>
+        <div class="github-block">
+            Source code: 
+            <a href="https://github.com/kermattc/electric-guitar-backend" target="_blank">
+                <img class="github-logo" src="../assets/images/github-logo.svg"/>
+            </a>
+        </div>
     </div>
 </div>

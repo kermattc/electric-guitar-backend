@@ -5,8 +5,9 @@
                 <img class="brand-logo" [src]="getBrandLogo(guitar.maker)" alt="{{guitar?.maker}} Logo">
                 <!-- <p class="guitar-maker" [innerHTML]="highlightKeywords(guitar.maker)">Brand:{{guitar.maker}}</p>
                   -->
+                <div>
                   <p class="guitar-maker" [innerHTML]="highlightKeywords('Brand: ' + guitar.maker)">Brand: {{guitar.maker}}</p>
-
+                </div>
                 <img class="guitar-image" [src]="getGuitarImage(guitar.maker+'-'+guitar.model)" alt="{{guitar?.model}} image" class="guitar-image">
 
                 <p class="guitar-model" [innerHTML]="highlightKeywords(guitar.model)">{{guitar.model}}</p>

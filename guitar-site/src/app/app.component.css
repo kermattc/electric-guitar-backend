@@ -24,6 +24,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-top: 50px;
 }
 
 .fetch-title {
@@ -36,11 +37,42 @@
     height: 1px;
 }
 
-/* .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-    justify-content: center;
-    width: 100%;
-    padding: 0 16px;
-} */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0%;
+    margin-left: 5px;
+    /* position: absolute; */
+}
+
+.kaggle-block a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.kaggle-block {
+    gap: 5px;
+}
+
+.kaggle-block a:hover {
+    text-decoration: underline;
+}
+
+.github-logo {
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    /* fill: #000000; */
+}
+
+.github-logo:hover {
+    background-color: #007bff;
+}
+
+.kaggle-block, .github-block {
+    display: flex;
+    align-items: center;
+}

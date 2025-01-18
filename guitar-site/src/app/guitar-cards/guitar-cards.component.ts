@@ -35,7 +35,7 @@ export class GuitarCardsComponent {
   
     console.log("Highlighting text: ", highlightedText);
     return highlightedText;
-  }
+  }  
   
 
   brandLogos: { [key: string]: string} = {
