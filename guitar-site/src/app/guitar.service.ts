@@ -8,9 +8,9 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GuitarService {
-  private baseUrl = 'http://localhost:8080/api/v1';
-  // private baseUrl = 'https://vcjshzd57g.execute-api.us-east-2.amazonaws.com/dev';
-  // private baseUrl = 'https://electric-guitar-lookup.azurewebsites.net/api/v1';
+  private baseUrl = 'http://localhost:8080/api/v1'; // local development
+  // private baseUrl = 'https://electric-guitar-lookup.azurewebsites.net/api/v1'; // test azure function app
+  // private baseUrl = 'https://vcjshzd57g.execute-api.us-east-2.amazonaws.com/dev';  // outdated - test ecs task
   constructor(private http: HttpClient) {}
 
   getGuitars(keywords: string[]): Observable<Guitar[]> {
@@ -27,8 +27,7 @@ export class GuitarService {
       'content-type': 'application/json',
     });
 
-    console.log("keywords in api call: ", `${this.baseUrl}/guitars?${api_keywords}`);
-    // return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`);
+    // console.log("keywords in api call: ", `${this.baseUrl}/guitars?${api_keywords}`);
  
     return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`, { headers });
   }

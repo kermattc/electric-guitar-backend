@@ -1,4 +1,3 @@
-<!-- <label>Enter key words separated by comma: </label> -->
 <div class="form-container">
     <mat-form-field>
         <mat-label>Enter keywords separated by commas</mat-label>
@@ -6,20 +5,20 @@
     </mat-form-field>
 </div>
 
-<!-- <input id="guitar-form" type="text" [formControl]="searchControl" placeholder="Enter keywords separated by commas"> -->
-<!-- <ng-container *ngIf="guitarsList?.length > 0"> -->
-<!-- <ng-container *ngIf="guitarsList != []"> -->
 <ng-container *ngIf="guitarsList && guitarsList.length > 0 else noGuitars;">
     <div class="cards-container">
         <app-guitar-cards
-            *ngFor="let guitar of guitarsList;"
-            [guitar] = "guitar"
+            *ngFor="let guitar of guitarsList | slice:0:visibleCards"
+            [guitar]="guitar"
             class="guitar-cards"
         >
         </app-guitar-cards>
     </div>
+
+    
+    <button mat-raised-button (click)="onShowMore()">Show More</button>
 </ng-container>
 
 <ng-template #noGuitars>
     <p *ngIf="searchControl.value">No guitars found :&#40;</p>
-  </ng-template>
+</ng-template>

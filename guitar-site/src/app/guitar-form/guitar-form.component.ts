@@ -8,11 +8,7 @@ import { Guitar } from '../guitar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-type RGB = {
-  r: number;
-  g: number;
-  b: number;
-};
+import { GuitarCardsService } from '../guitar-cards/guitar-cards.service';
 
 @Component({
   selector: 'app-guitar-form',
@@ -25,16 +21,22 @@ type RGB = {
 
 export class GuitarFormComponent {
   searchControl = new FormControl('');
-  constructor(private guitarService: GuitarService) {}
+  constructor(private guitarService: GuitarService, private guitarCardsService: GuitarCardsService) {}
 
   guitarsList: Guitar[] = [];
   colors: string[] = [];
+  visibleCards: number = 4;
 
-  // GuitarService guitarService = new GuitarService();
+
+
   // look for changes every 300 ms
   // turn string into array of strings so i can pass it into the api later
-    // remove leading/trailing whitespace -> turn string into array (comma delimieter) -> remove leading/trailing whitespace for each item -> remove empty strings
+  // remove leading/trailing whitespace -> turn string into array (comma delimieter) -> remove leading/trailing whitespace for each item -> remove empty strings
   ngOnInit() {
+    this.guitarCardsService.visibleCards$.subscribe(cards => {
+      this.visibleCards = cards;
+    })
+
     console.log("guitars list: ", this.guitarsList);
     this.searchControl.valueChanges.pipe(
         debounceTime(300),
@@ -56,11 +58,6 @@ export class GuitarFormComponent {
           
           this.guitarsList.forEach(guitar => {
             guitar.color = generateRandomColor(255,255, 255);
-
-            
-            // `rgb(${Math.floor(Math.random() * 256)}, 
-            // ${Math.floor(Math.random() * 256)}, 
-            // ${Math.floor(Math.random() * 256)})`
           })
       
           console.log("data: ", guitars);
@@ -69,7 +66,6 @@ export class GuitarFormComponent {
       });
 
       function generateRandomColor(r: number, g: number, b: number): string {
-        let color=""
         let red = Math.floor(Math.random() * 256);
         let green = Math.floor(Math.random() * 256);
         let blue = Math.floor(Math.random() * 256);
@@ -80,5 +76,8 @@ export class GuitarFormComponent {
 
         return `rgb(${red}, ${green}, ${blue})`;
       }
-  }
+    }
+    onShowMore() {
+      this.guitarCardsService.showMore();
+    }
 }

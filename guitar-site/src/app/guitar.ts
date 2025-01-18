@@ -1,5 +1,3 @@
-import { NumberValueAccessor } from "@angular/forms";
-
 export interface Guitar {
     id: number;
     maker: string;

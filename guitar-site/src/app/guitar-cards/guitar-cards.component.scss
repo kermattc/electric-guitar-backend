@@ -73,6 +73,8 @@ mat-chip-set, .description {
 .brand-logo {
     height: 48px;
     margin-right: 10px;
+    max-width: 100%;
+    object-fit: contain;
 }
 .guitar-image {
     height: 100px;
@@ -88,4 +90,10 @@ mat-chip-set, .description {
 
 mat-expansion-panel {
     width: 100%;
+}
+
+.chevron {
+    width: 48px;
+    height: auto;
+    display: block;
 }
