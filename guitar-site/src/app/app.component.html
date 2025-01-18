@@ -13,5 +13,13 @@
         <div class="card-container">
             <app-guitar-cards class="guitar-cards"></app-guitar-cards>
         </div>
+
+        <ng-container *ngIf="dataLoading">
+            <div class="fetch-indicator">
+                <div class="fetch-title">Grabbing data, please wait</div>
+                <mat-spinner class="fetch-spinner"/>
+            </div>
+
+        </ng-container>
     </div>
 </div>

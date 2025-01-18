@@ -28,8 +28,7 @@ export class GuitarFormComponent {
   colors: string[] = [];
   visibleCards: number = 4;
   allGuitarsVisible: boolean = false;
-
-
+  dataLoading: boolean = false;
 
   // look for changes every 300 ms
   // turn string into array of strings so i can pass it into the api later
@@ -41,6 +40,10 @@ export class GuitarFormComponent {
     this.guitarCardsService.allGuitarsVisible.subscribe(isVisible => {
       this.allGuitarsVisible = isVisible;
     })
+    this.guitarCardsService.fetchingData.subscribe(isFetching => {
+      this.dataLoading = isFetching;
+    })
+
     console.log("guitars list: ", this.guitarsList);
     this.searchControl.valueChanges.pipe(
         debounceTime(300),
@@ -55,6 +58,8 @@ export class GuitarFormComponent {
         ).values());
 
         console.log("Keywords:", keywords);
+        // set data loading state to true so i can render a graphic that the data is being fetched
+        this.guitarCardsService.setLoadingState(true);
 
         this.guitarService.getGuitars(keywords).subscribe( (guitars) => {
       
@@ -65,9 +70,11 @@ export class GuitarFormComponent {
           })
       
           console.log("data: ", guitars);
- 
+          this.guitarCardsService.setLoadingState(false);
+
         });
       });
+
 
       function generateRandomColor(r: number, g: number, b: number): string {
         let red = Math.floor(Math.random() * 256);
@@ -81,6 +88,7 @@ export class GuitarFormComponent {
         return `rgb(${red}, ${green}, ${blue})`;
       }
     }
+    
     onShowMore() {
       this.guitarCardsService.showMore(this.guitarsList.length);
     }

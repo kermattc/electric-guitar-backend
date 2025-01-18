@@ -7,9 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class GuitarCardsService {
   private visibleCardsSubject = new BehaviorSubject<number>(4);
   private allGuitarsVisibleSubject = new BehaviorSubject<boolean>(false);
+  private fetchingDataSubject = new BehaviorSubject<boolean>(false);
 
   visibleCards = this.visibleCardsSubject.asObservable();
   allGuitarsVisible = this.allGuitarsVisibleSubject.asObservable();
+  fetchingData = this.fetchingDataSubject.asObservable();
 
   showMore(totalGuitars: number) {
     const currentVisibleCards = this.visibleCardsSubject.value + 4;
@@ -18,5 +20,9 @@ export class GuitarCardsService {
     if (currentVisibleCards >= totalGuitars) {
         this.allGuitarsVisibleSubject.next(true);
     }
+  }
+
+  setLoadingState(isLoading: boolean) {
+    this.fetchingDataSubject.next(isLoading);
   }
 }

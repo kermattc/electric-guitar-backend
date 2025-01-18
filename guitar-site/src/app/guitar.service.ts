@@ -27,8 +27,6 @@ export class GuitarService {
       'content-type': 'application/json',
     });
 
-    // console.log("keywords in api call: ", `${this.baseUrl}/guitars?${api_keywords}`);
- 
     return this.http.get<Guitar[]>(`${this.baseUrl}/guitars?${api_keywords}`, { headers });
   }
 }

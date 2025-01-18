@@ -5,7 +5,7 @@
     </mat-form-field>
 </div>
 
-<ng-container *ngIf="guitarsList && guitarsList.length > 0 else noGuitars;">
+<ng-container *ngIf="dataLoading || (guitarsList && guitarsList.length > 0) else noGuitars;">
     <div class="cards-container">
         <app-guitar-cards
             *ngFor="let guitar of guitarsList | slice:0:visibleCards"
@@ -15,8 +15,8 @@
         </app-guitar-cards>
     </div>
 
-
-    <button mat-raised-button 
+    <button *ngIf="!dataLoading" 
+        mat-raised-button 
         class="showMoreButton" 
         (click)="onShowMore()" 
         [disabled]="allGuitarsVisible">
@@ -25,5 +25,5 @@
 </ng-container>
 
 <ng-template #noGuitars>
-    <p *ngIf="searchControl.value">No guitars found :&#40;</p>
+    <p *ngIf="!dataLoading && searchControl.value">No guitars found :&#40;</p>
 </ng-template>
