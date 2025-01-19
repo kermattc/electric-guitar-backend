@@ -30,6 +30,10 @@
 .fetch-title {
     margin-bottom: 10px;
     font-size: 24px;
+    background-color: rgba(184, 183, 182, 0.35) ;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .fetch-spinner {

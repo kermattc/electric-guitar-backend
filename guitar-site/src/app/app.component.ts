@@ -20,6 +20,7 @@ export class AppComponent {
   title = 'Guitar Lookup';
   dataLoading: boolean = false;
 
+
   constructor(private guitarCardsService: GuitarCardsService) {}
   
   ngOnInit() {

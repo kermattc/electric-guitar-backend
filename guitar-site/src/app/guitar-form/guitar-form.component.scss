@@ -34,6 +34,7 @@ button[mat-raised-button] {
     font-size: 20px;
     border-radius: 10px;
 }
+
 button[mat-raised-button]:disabled {
     background-color: #b8b7b6 !important;
     color: black;
@@ -43,6 +44,14 @@ button[mat-raised-button]:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.footer-text {
+    background-color: rgba(184, 183, 182, 0.2) ;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
 }
 
 .kaggle-block a {
@@ -62,7 +71,7 @@ button[mat-raised-button]:disabled {
 .github-logo {
     width: 48px;
     height: 36px;
-    // transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
     // fill: #000000;
 }
 
