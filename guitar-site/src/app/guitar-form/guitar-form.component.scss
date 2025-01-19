@@ -19,7 +19,7 @@ mat-label, input {
 // }
 .mdc-text-field.changed,
 .mat-mdc-form-field-flex.changed {
-  background-color: black !important; /* Bright yellow color to indicate change */
+  background-color: black !important;
   transition: background-color 0.3s ease;
 }
 
@@ -27,7 +27,7 @@ mat-label, input {
 .mdc-text-field,
 .mat-mdc-form-field-flex {
   transition: background-color 0.3s ease;
-  background-color: #e0e0e0 !important; /* Original background color */
+  background-color: #e0e0e0 !important;
 }
 
 .cards-container {
@@ -40,16 +40,15 @@ mat-label, input {
     display: flex;
     flex-wrap: wrap;
     gap: 16px; 
-    justify-content: center; /* Horizontally centers the cards */
-    align-items: flex-start; /* Prevents the items from shifting when one card expands */
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
 }
 
 .tooltip {
-    font-size: 20px;
-    background-color: rgba(114, 193, 242, 0.3);
-    padding: 10px;
-    border-radius: 15px;
+    font-size: 22px;
+    color: #555;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); 
 }
 
 button[mat-raised-button] {
@@ -107,21 +106,4 @@ button[mat-raised-button]:disabled {
 .kaggle-block, .github-block {
     display: flex;
     align-items: center;
-}
-
-.flash-effect {
-    animation: flash 0.5s ease-in-out;
-}
-
-/* Define the flash keyframes */
-@keyframes flash {
-    0% {
-        background-color: #fff;
-    }
-    50% {
-        background-color: #ffeb3b; /* Yellow color */
-    }
-    100% {
-        background-color: #fff;
-    }
 }

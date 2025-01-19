@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GuitarFormComponent } from "./guitar-form/guitar-form.component";
 import { GuitarCardsComponent } from "./guitar-cards/guitar-cards.component";
@@ -17,7 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 export class AppComponent {
-  title = 'Guitar Lookup';
+  title = 'Guitar Lookup: Explore Guitar Details and Specs ';
   dataLoading: boolean = false;
   selectedBrand: string = "";
 
