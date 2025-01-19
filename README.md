@@ -19,8 +19,12 @@
 
 
 ## Bugs / known issues
-- spaces are removed by accident in the backend (ie: typing in "Jimi Hendrix" won't return the legend himself)
+- ~~spaces are removed by accident in the backend (ie: typing in "Jimi Hendrix" won't return the legend himself)~~
 - adaptive screen sizes
-- consistency with cards
+- ~~consistency with cards~~
+- weird bug when starting a search with a new keyword that includes any of the characters in (class="highlight"), then it will add that into the text and highlight itself
+
+## Additional Features
+- add a function where you can include rows with all keywords (search via OR)
 
 I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
