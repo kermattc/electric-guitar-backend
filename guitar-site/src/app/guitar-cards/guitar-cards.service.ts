@@ -25,4 +25,9 @@ export class GuitarCardsService {
   setLoadingState(isLoading: boolean) {
     this.fetchingDataSubject.next(isLoading);
   }
+
+  resetVisibleCards() {
+    this.visibleCardsSubject.next(4);
+    this.allGuitarsVisibleSubject.next(false);
+  }
 }

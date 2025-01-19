@@ -31,11 +31,17 @@ mat-label, input {
 }
 
 .cards-container {
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 16px;     
+    // // flex-wrap: wrap;
+    // // align-items: center;
+    // width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;     
-    // flex-wrap: wrap;
-    // align-items: center;
+    gap: 16px; 
+    justify-content: center; /* Horizontally centers the cards */
+    align-items: flex-start; /* Prevents the items from shifting when one card expands */
     width: 100%;
 }
 

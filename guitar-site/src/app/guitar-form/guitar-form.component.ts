@@ -53,6 +53,7 @@ export class GuitarFormComponent implements OnChanges{
         distinctUntilChanged(),
       )
       .subscribe((value: string | null) => {
+        this.guitarCardsService.resetVisibleCards(); 
         this.searchKeywords = Array.from(new Set (
           value?.trim()
           .split(",")

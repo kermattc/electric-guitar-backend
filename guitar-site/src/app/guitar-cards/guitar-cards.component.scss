@@ -1,9 +1,8 @@
 .card {
     margin: 40px;
-    min-width: 425px;
-    max-width: 425px;
-    // width: 25%;
-    display: flex;
+    min-width: 450px;
+    max-width: 450px;
+    // display: flex;
 }
 
 mat-card {
@@ -133,4 +132,5 @@ mat-expansion-panel {
     justify-content: center;
     align-items: center;
     text-align: center;
+
 }
