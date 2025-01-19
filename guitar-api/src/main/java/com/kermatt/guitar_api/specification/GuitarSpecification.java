@@ -24,6 +24,7 @@ public class GuitarSpecification {
                 Predicate feature3Predicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("feature3")), "%" + keyword.toLowerCase() + "%");
                 Predicate feature4Predicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("feature4")), "%" + keyword.toLowerCase() + "%");
                 Predicate feature5Predicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("feature5")), "%" + keyword.toLowerCase() + "%");
+                Predicate popularityPredicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("popularity")), "%" + keyword.toLowerCase() + "%");
 
                 // Combine all column predicates with OR logic for the current keyword
                 Predicate keywordPredicate = criteriaBuilder.or(
@@ -36,7 +37,8 @@ public class GuitarSpecification {
                     feature2Predicate,
                     feature3Predicate,
                     feature4Predicate,
-                    feature5Predicate
+                    feature5Predicate,
+                    popularityPredicate
                 );
 
                 // Add the current keyword condition to the combined predicate with AND logic
