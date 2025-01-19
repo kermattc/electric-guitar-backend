@@ -6,12 +6,15 @@
                 <!-- <p class="guitar-maker" [innerHTML]="highlightKeywords(guitar.maker)">Brand:{{guitar.maker}}</p>
                   -->
                 <div>
-                  <p class="guitar-maker" [innerHTML]="highlightKeywords('Brand: ' + guitar.maker)">Brand: {{guitar.maker}}</p>
+                  <p class="guitar-maker" [innerHTML]="highlightKeywords('Brand: ' + guitar.maker)">{{guitar.maker}}</p>
                 </div>
                 <img class="guitar-image" [src]="getGuitarImage(guitar.maker+'-'+guitar.model)" alt="{{guitar?.model}} image" class="guitar-image">
 
-                <p class="guitar-model" [innerHTML]="highlightKeywords(guitar.model)">{{guitar.model}}</p>
-                <img class="chevron" src="../assets/images/chevron.png" [style.transform]="'rotate('+rotationAngle+'deg)'">
+                <p class="guitar-model" [innerHTML]="highlightKeywords('Model: ' + guitar.model)">{{guitar.model}}</p>
+                <div class="show-more-container">
+                    <span class="show-more-label">More Details</span>
+                    <img class="chevron" src="../assets/images/chevron.png" [style.transform]="'rotate('+rotationAngle+'deg)'">
+                </div>
   
             </mat-panel-title>
 

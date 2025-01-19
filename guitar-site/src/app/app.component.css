@@ -15,6 +15,14 @@
 
 }
 
+.subtitle {
+    font-size: 20px;
+}
+
+.mini-title {
+    font-size: 18px;
+}
+
 .fetch-indicator {
     display: flex;
     flex-direction: column;
@@ -79,4 +87,56 @@
 .kaggle-block, .github-block {
     display: flex;
     align-items: center;
+}
+
+.tip-a {
+    background-color: rgba(196, 108, 240, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.tip-b {
+    background-color: rgba(42, 222, 186, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.brand-tip-a {
+    background-color: rgba(114, 193, 242, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.brand-tip-b {
+    background-color: rgba(255, 99, 71, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.brand-tip-c {
+    background-color: rgba(34, 139, 34, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.brand-tip-d {
+    background-color: rgba(255, 165, 0, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.brand-tip-e {
+    background-color: rgba(139, 69, 19, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.tip-a:hover,
+.tip-b:hover,
+.brand-tip-a:hover, 
+.brand-tip-b:hover, 
+.brand-tip-c:hover, 
+.brand-tip-d:hover, 
+.brand-tip-e:hover {
+    cursor: pointer;
 }

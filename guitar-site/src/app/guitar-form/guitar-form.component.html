@@ -1,11 +1,14 @@
 <div class="form-container">
     <mat-form-field>
         <mat-label>Enter keywords separated by commas</mat-label>
-        <input matInput id="input-field" type="text" [formControl]="searchControl" placeholder="Fender, Stratocaster, Jimi Hendrix...,">
+        <input #searchInput matInput id="input-field" type="text" [formControl]="searchControl" placeholder="Fender, Stratocaster, Jimi Hendrix...,">
     </mat-form-field>
 </div>
 
 <ng-container *ngIf="dataLoading || (guitarsList && guitarsList.length > 0) else noGuitars;">
+    <p class="tooltip">
+        Click on a card to learn more about each guitar
+    </p>
     <div class="cards-container">
         <app-guitar-cards
             *ngFor="let guitar of guitarsList | slice:0:visibleCards"

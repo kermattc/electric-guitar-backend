@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -20,7 +20,9 @@ import { GuitarCardsService } from '../guitar-cards/guitar-cards.service';
   styleUrls: ['./guitar-form.component.css', './guitar-form.component.scss']
 })
 
-export class GuitarFormComponent {
+export class GuitarFormComponent implements OnChanges{
+  @Input() selectedBrand: string = "";
+
   searchControl = new FormControl('');
   constructor(private guitarService: GuitarService, private guitarCardsService: GuitarCardsService) {}
 
@@ -45,7 +47,7 @@ export class GuitarFormComponent {
       this.dataLoading = isFetching;
     })
 
-    console.log("guitars list: ", this.guitarsList);
+    // console.log("guitars list: ", this.guitarsList);
     this.searchControl.valueChanges.pipe(
         debounceTime(300),
         distinctUntilChanged(),
@@ -60,7 +62,7 @@ export class GuitarFormComponent {
         ).values());
 
         if (this.searchKeywords.length > 0) {
-          console.log("Keywords:", this.searchKeywords);
+          // console.log("Keywords:", this.searchKeywords);
           // set data loading state to true so i can render a graphic that the data is being fetched
           this.guitarCardsService.setLoadingState(true);
   
@@ -72,12 +74,12 @@ export class GuitarFormComponent {
               guitar.color = generateRandomColor(255,255, 255);
             })
         
-            console.log("data: ", guitars);
+            // console.log("data: ", guitars);
             this.guitarCardsService.setLoadingState(false);
           });
         } else {
           this.guitarsList = [];
-          console.log("Keywords empty, clearing results");
+          // console.log("Keywords empty, clearing results");
         }
       }
     );
@@ -96,6 +98,12 @@ export class GuitarFormComponent {
       }
     }
     
+    ngOnChanges() {
+      if (this.selectedBrand) {
+        this.searchControl.setValue(this.selectedBrand);
+      }
+    }
+
     onShowMore() {
       this.guitarCardsService.showMore(this.guitarsList.length);
     }

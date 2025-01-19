@@ -2,13 +2,28 @@
     <div class="content">
         <div class="header">
             <h1 class="title">{{title}}</h1>
-            <div> Search for guitars by entering keywords separated by commas to narrow down your search.</div>
-            <br/>
-            <div> Use keywords including brands (Fender, Gibson), models (Stratocaster, Les Paul), guitarists (Jimi Hendrix, Slash) and more.</div>
-            <br/>
-            <div> Example searches: &#40;fender, stratocaster, jimi hendrix&#41;, &#40;gibson, les paul, slash&#41;, &#40;beginner, fender&#41; &#40;ibanez, wizard&#41;</div>
-            <br/>
-            <app-guitar-form class="guitar-form"></app-guitar-form>
+            <p class="subtitle">  
+                Start typing to find your perfect guitar! Try beginning with a popular brand like
+                <span class="brand-tip-a" (click)="fillSearch('Fender')">Fender</span>,
+                <span class="brand-tip-b" (click)="fillSearch('Gibson')">Gibson</span>,
+                <span class="brand-tip-c" (click)="fillSearch('Gretsch')">Gretsch</span>,
+                <span class="brand-tip-d" (click)="fillSearch('Ibanez')">Ibanez</span>, and
+                <span class="brand-tip-e" (click)="fillSearch('Taylor')">Taylor</span>.
+            </p>
+            <p class="subtitle">
+                You can add more words to narrow your search (separate with commas). For example: 
+                <span class="tip-a" (click)="fillSearch('Fender, Stratocaster')">"Fender, Stratocaster"</span>                 
+            </p>
+            <p class="subtitle">
+                More searches you can try: 
+                <span class="tip-b" (click)="fillSearch('Fender, Jimi Hendrix')">"Fender, Jimi Hendrix"</span>,
+                <span class="tip-b" (click)="fillSearch('Beginner')">"Beginner"</span>,
+                <span class="tip-b" (click)="fillSearch('Rock, Metal')">"Rock, Metal"</span>,
+                <span class="tip-b" (click)="fillSearch('Ibanez, Fast')">"Ibanez, Fast"</span>,
+
+
+            </p>
+            <app-guitar-form [selectedBrand]="selectedBrand" class="guitar-form"></app-guitar-form>
         </div>
 
         

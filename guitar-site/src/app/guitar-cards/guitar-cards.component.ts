@@ -33,7 +33,7 @@ export class GuitarCardsComponent {
     highlightedText = highlightedText.replace(regex, `<mark class="highlight">$1</mark>`);
   });
   
-    console.log("Highlighting text: ", highlightedText);
+    // console.log("Highlighting text: ", highlightedText);
     return highlightedText;
   }  
   

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GuitarFormComponent } from "./guitar-form/guitar-form.component";
 import { GuitarCardsComponent } from "./guitar-cards/guitar-cards.component";
 import { CommonModule } from '@angular/common';
 
 import { GuitarCardsService } from './guitar-cards/guitar-cards.service';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 export class AppComponent {
   title = 'Guitar Lookup';
   dataLoading: boolean = false;
-
+  selectedBrand: string = "";
 
   constructor(private guitarCardsService: GuitarCardsService) {}
   
@@ -27,5 +27,10 @@ export class AppComponent {
     this.guitarCardsService.fetchingData.subscribe(isFetching => {
       this.dataLoading = isFetching;
     })
+  }
+  
+  fillSearch(brand: string) {
+    // console.log("Searching brand: " + brand);
+    this.selectedBrand = brand;
   }
 }
