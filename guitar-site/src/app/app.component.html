@@ -13,23 +13,28 @@
             </p>
             <p class="subtitle">
                 To refine your search, add more keywords (separate with commas). For example:
-                <span class="tip-a" (click)="fillSearch('Fender, Stratocaster')">"Fender, Stratocaster"</span>                 
+                <span class="tip-a" (click)="fillSearch('Fender, Stratocaster')">"Fender, Stratocaster"</span>,
+                <span class="tip-b" (click)="fillSearch('Fender, Jimi Hendrix')">"Fender, Jimi Hendrix"</span>,
+                <span class="tip-b" (click)="fillSearch('Beginner')">"Beginner"</span>,
+                <span class="tip-b" (click)="fillSearch('Rock, Metal')">"Rock, Metal"</span>,
+                <span class="tip-b" (click)="fillSearch('Ibanez, Fast')">"Ibanez, Fast"</span>     
             </p>
             <app-guitar-form [selectedBrand]="selectedBrand" class="guitar-form"></app-guitar-form>
-            <p class="subtitle">
+            <!-- <p class="subtitle">
                 More searches you can try: 
                 <span class="tip-b" (click)="fillSearch('Fender, Jimi Hendrix')">"Fender, Jimi Hendrix"</span>,
                 <span class="tip-b" (click)="fillSearch('Beginner')">"Beginner"</span>,
                 <span class="tip-b" (click)="fillSearch('Rock, Metal')">"Rock, Metal"</span>,
                 <span class="tip-b" (click)="fillSearch('Ibanez, Fast')">"Ibanez, Fast"</span>
-            </p>
+            </p> -->
         </div>
 
-        
+        <ng-container *ngIf="!dataLoading">
+
         <div class="card-container">
             <app-guitar-cards class="guitar-cards"></app-guitar-cards>
         </div>
-
+    </ng-container>
         <ng-container *ngIf="dataLoading">
             <div class="fetch-indicator">
                 <div class="fetch-title">Grabbing data, please wait &#40;server may need spinning up&#41;</div>
