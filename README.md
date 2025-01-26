@@ -28,5 +28,6 @@
 ## Additional Features
 - add a function where you can include rows with all keywords (search via OR)
 
+The gitlab repo is stored separately as I just copied this project and created a new repo there as things were starting to get messy here.
 The odd combination of technologies isn't due to any reason in particular, I was just exploring different technologies and kept applying them onto this project.
 I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
