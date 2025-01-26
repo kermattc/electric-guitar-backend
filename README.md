@@ -10,10 +10,11 @@
 - Frontend: Angular, TypeScript, Angular Material
 - Backend: Java, Spring Boot, JPA Query
 - Database: PostgreSQL
-- CI/CD: GitHub Actions and Workflow
+- CI/CD: Gitlab (Frontend), GitHub Actions + Workflow (Backend)
+- IaC: Terraform
 
 - Deployment:
-  - Frontend: S3 for static web hosting, CloudFront
+  - Frontend: S3 for static web hosting, CloudFront, CI/CD via Gitlab
   - Backend: Azure Function (pulls docker image on ghcr) (Also, I initially used AWS ECS and API Gateway but ended up getting charged $$$ for that)
   - Database: RDS
 
@@ -27,4 +28,5 @@
 ## Additional Features
 - add a function where you can include rows with all keywords (search via OR)
 
+The odd combination of technologies isn't due to any reason in particular, I was just exploring different technologies and kept applying them onto this project.
 I figured I had too many projects that revolve around baseball so here's one about another hobby of mine - guitar! 
