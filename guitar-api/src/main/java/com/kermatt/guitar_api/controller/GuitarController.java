@@ -25,8 +25,7 @@ public class GuitarController {
     public List<Guitar> getGuitars(
         @RequestParam(required = false) List<String> words) {
             if (words != null) {
-                // List<String> keywords = List.of(words.split(","));
-                // System.out.println("From controller - words: " + words);
+                // // for debugging purposes. Simulates loading time because azure function app is slow af
                 // try {
                 //     Thread.sleep(6000);
                 // } catch (InterruptedException e) {

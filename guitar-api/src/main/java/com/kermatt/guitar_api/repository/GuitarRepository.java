@@ -18,21 +18,9 @@ import com.kermatt.guitar_api.entity.Guitar;
 // extending jpa repository gives access to a bunch of methods for interacting with data
 public interface GuitarRepository extends JpaRepository<Guitar, Integer>, JpaSpecificationExecutor<Guitar> {
 
-    // using findBy (which indicates a query) would result in a verryy long function name (findByMakerIgnoreCaseContainingOrModelIgnoreCaseContaining....OrFinish3IgnoreContaining(String keyword);)
-        // since that's the case it's better to use a query
-    // @Query("SELECT g FROM Guitar g WHERE " +
-    // "LOWER(g.maker) LIKE %:keyword% OR " +
-    // "LOWER(g.model) LIKE %:keyword% OR " +
-    // "LOWER(g.notableUser1) LIKE %:keyword% OR " +
-    // "LOWER(g.notableUser2) LIKE %:keyword% OR " +
-    // "LOWER(g.notableUser3) LIKE %:keyword% OR " +
-    // "LOWER(g.feature1) LIKE %:keyword% OR " +
-    // "LOWER(g.feature2) LIKE %:keyword% OR " +
-    // "LOWER(g.feature3) LIKE %:keyword% OR " +
-    // "LOWER(g.feature4) LIKE %:keyword% OR " +
-    // "LOWER(g.feature5) LIKE %:keyword% OR " +
-    // "LOWER(g.popularity) LIKE %:keyword%")
-
+    // // old method that returns all rows that contain any of the keywords. good for broad searches, but not what I need at the moment
+    // // using findBy (which indicates a query) would result in a verryy long function name (findByMakerIgnoreCaseContainingOrModelIgnoreCaseContaining....OrFinish3IgnoreContaining(String keyword);)
+       // // since that's the case it's better to use a query
     // @Query("SELECT g FROM Guitar g WHERE " +
     // "(LOWER(g.maker) LIKE %:keyword% OR " +
     // "LOWER(g.model) LIKE %:keyword% OR " +
@@ -46,19 +34,4 @@ public interface GuitarRepository extends JpaRepository<Guitar, Integer>, JpaSpe
     // "LOWER(g.feature5) LIKE %:keyword% OR " +
     // "LOWER(g.popularity) LIKE %:keyword%)")
     // List<Guitar> searchGuitarsByKeywords(@Param("keyword") String keywords);
-
-    // @Query("SELECT g FROM Guitar g WHERE " + 
-    // "LOWER(g.maker) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.model) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.notableUser1) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.notableUser2) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.notableUser3) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.feature1) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.feature2) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.feature3) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.feature4) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.feature5) LIKE LOWER(:keyword) OR " + 
-    // "LOWER(g.popularity) LIKE LOWER(:keyword)")
-    // List<Guitar> searchGuitarsByKeywords(@Param("keyword") String keyword);
-    
 }

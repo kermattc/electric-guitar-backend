@@ -13,6 +13,7 @@ public class GuitarInfoApiApplication {
 		SpringApplication.run(GuitarInfoApiApplication.class, args);
 	}
 
+    // had to move the bean over to the main class because for some reason it kept getting ignored (-12 hours of my life)
 	@Bean
     public WebMvcConfigurer corsConfig() {
         System.out.println("Adding CORS configuration pt1...");

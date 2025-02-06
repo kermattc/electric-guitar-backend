@@ -30,7 +30,12 @@ public class GuitarService {
         return guitarRepository.findAll();
     }
 
-
+    // most up to date method that uses predicates and specification
+        // uses dynamic SQL query to narrow down searches. Check out more of it in GuitarSpecification.java
+    public List<Guitar> searchGuitars(List<String> keywords) {
+        Specification<Guitar> specification = GuitarSpecification.containsKeywords(keywords);
+        return guitarRepository.findAll(specification);
+    }
 
     // new! and improved! search method. loop through words array and perform query search
     // TODO - modify so that it doesn't repeat search of previous keyword, only new ones
@@ -52,11 +57,7 @@ public class GuitarService {
     //     }
     // }
 
-    public List<Guitar> searchGuitars(List<String> keywords) {
-        Specification<Guitar> specification = GuitarSpecification.containsKeywords(keywords);
-        System.out.println("Specification: " + specification);
-        return guitarRepository.findAll(specification);
-    }
+
 }
 
 
